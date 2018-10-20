@@ -24,6 +24,12 @@ export default class App extends Component {
   render() {
     const { transactions } = this.state;
 
+    setTimeout(() => {
+      this.setState({
+        transactions: generateTransactions(10),
+      });
+    }, 3000);
+
     return (
       <div>
         <WordMap transactions={transactions} />

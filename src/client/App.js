@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import './app.css';
 import WordMap from './components/basic-map';
 import { generateTransactions } from './components/transactions';
+import { sortTransfers } from '../server/logic';
 
-/* eslint-disable */
 export default class App extends Component {
   constructor(props) {
     super(props);
@@ -23,6 +23,8 @@ export default class App extends Component {
 
   render() {
     const { transactions } = this.state;
+
+    console.log(sortTransfers);
 
     setTimeout(() => {
       this.setState({

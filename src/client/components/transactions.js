@@ -24,6 +24,7 @@ export const generateTransactions = (count) => {
       startY: Math.random() * 500,
       endX: Math.random() * 1000,
       endY: Math.random() * 500,
+      scale: Math.random(),
     });
   }
 

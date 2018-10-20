@@ -32,10 +32,8 @@ export default class App extends Component {
 
     return (
       <div>
+        <div className="title">TSU Team</div>
         <WordMap transactions={transactions} />
-        <button onClick={this.loadTransactions}>
-          add transactions
-        </button>
       </div>
     );
   }

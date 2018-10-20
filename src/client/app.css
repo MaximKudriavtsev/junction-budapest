@@ -1,5 +1,13 @@
 h1 {
-  color: green;
+  color: #afdafc;
+}
+
+.title {
+  padding: 50px;
+  color: #afdafc;
+  margin: 0 auto;
+  font-family: "ff-meta-web-pro","PT Sans","Lucida Grande","Lucida Sans","Lucida",Verdana,"Droid Sans",sans-serif;
+  font-size: 40px;
 }
 
 body {
@@ -7,3 +15,4 @@ body {
   margin: auto;
   background-color: #1a1a1a;
 }
+

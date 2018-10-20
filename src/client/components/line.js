@@ -4,6 +4,7 @@ import './line.css';
 
 const DELAY = 500;
 const ANIMATION_DELAY = 2000;
+const WITH = 15;
 
 /* eslint-disable */
 export class Line extends PureComponent {
@@ -52,6 +53,7 @@ export class Line extends PureComponent {
 		const {
 			startX,
 			startY,
+			scale,
 		} = this.props;
 		const {
 			endX,
@@ -67,6 +69,8 @@ export class Line extends PureComponent {
 					transform: `rotate(${ Math.atan((startY - endY/(startX - endX))) }rad)`,
 					left: `${endX}px`,
 					top: `${endY}px`,
+					width: `${WITH * scale}px`,
+					height: `${WITH * scale}px`
 				}}
 			/>
 		);

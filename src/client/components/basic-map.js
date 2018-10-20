@@ -13,7 +13,9 @@ const wrapperStyles = {
   width: '100%',
   maxWidth: 980,
   backgroundColor: '#1a1a1a',
-  // margin: "0 auto",
+  margin: '0 auto',
+  position: 'relative',
+  // marginTop: '100px',
 };
 
 class BasicMap extends Component {

@@ -16,7 +16,27 @@ const wrapperStyles = {
 };
 
 class BasicMap extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      transactions: undefined,
+    };
+  }
+
+  static getDerivedStateFromProps(nextProps, prevState) {
+    const {
+      transactions = prevState.transactions,
+    } = nextProps;
+
+    return {
+      transactions,
+    };
+  }
+
   render() {
+    const { transactions: trans } = this.state;
+
     const sortTransactionGroups = getTransactionGroups().sort((a, b) => {
       if (a.count > b.count) {
         return 1;
@@ -32,7 +52,18 @@ class BasicMap extends Component {
 
     return (
       <div style={wrapperStyles}>
-        <Line />
+        {trans.map(({ id, ...coords }) => (
+          <Line
+            key={id}
+            {...coords}
+          />
+        ))}
+        <Line
+          startX={500}
+          startY={400}
+          endX={200}
+          endY={300}
+        />
         <ComposableMap
           projectionConfig={{
             scale: 160,

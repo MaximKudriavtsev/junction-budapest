@@ -12,30 +12,13 @@ import { Line } from './line';
 const wrapperStyles = {
   width: '100%',
   maxWidth: 980,
+  backgroundColor: '#1a1a1a',
   // margin: "0 auto",
 };
 
 class BasicMap extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      transactions: undefined,
-    };
-  }
-
-  static getDerivedStateFromProps(nextProps, prevState) {
-    const {
-      transactions = prevState.transactions,
-    } = nextProps;
-
-    return {
-      transactions,
-    };
-  }
-
   render() {
-    const { transactions: trans } = this.state;
+    const { transactions } = this.props;
 
     const sortTransactionGroups = getTransactionGroups().sort((a, b) => {
       if (a.count > b.count) {
@@ -44,26 +27,18 @@ class BasicMap extends Component {
       if (a.count < b.count) {
         return -1;
       }
-      // a должно быть равным b
       return 0;
     });
 
-    console.log(sortTransactionGroups);
-
+    console.log(transactions);
     return (
       <div style={wrapperStyles}>
-        {trans.map(({ id, ...coords }) => (
+        {transactions.map(({ id, ...coords }) => (
           <Line
             key={id}
             {...coords}
           />
         ))}
-        <Line
-          startX={500}
-          startY={400}
-          endX={200}
-          endY={300}
-        />
         <ComposableMap
           projectionConfig={{
             scale: 160,
@@ -81,9 +56,9 @@ class BasicMap extends Component {
               {(geographies, projection) => geographies.map((geography, i) => {
                 const popScale = scaleLinear()
                   .domain([sortTransactionGroups[0].count, sortTransactionGroups[Math.floor(sortTransactionGroups.length / 2)].count, sortTransactionGroups[sortTransactionGroups.length - 1].count])
-                  .range(['#0000FF', '#00FF00', '#FF0000']);
+                  .range(['#000000', '#111', '#fff']);
                 // if (geography.properties.iso_a2 === 'RUS') {
-                console.log(`${geography.properties.iso_a2} - ${geography.properties.name}`);
+                // console.log(`${geography.properties.iso_a2} - ${geography.properties.name}`);
 
                 // }
                 // console.log(geography.properties);
@@ -99,8 +74,9 @@ class BasicMap extends Component {
                     onClick={this.handleClick}
                     style={{
                       default: {
-                        fill: popScale(index === -1 ? 0 : sortTransactionGroups[index].count),
-                        stroke: '#607D8B',
+                        // fill: popScale(index === -1 ? 0 : sortTransactionGroups[index].count),
+                        fill: '#292929',
+                        stroke: '#afdafc',
                         strokeWidth: 0.75,
                         outline: 'none',
                       },

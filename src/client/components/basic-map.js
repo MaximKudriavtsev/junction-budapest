@@ -28,7 +28,7 @@ class BasicMap extends Component {
             rotation: [-11,0,0],
           }}
           width={980}
-          height={551}
+          height={750}
           style={{
             width: "100%",
             height: "auto",
@@ -36,7 +36,14 @@ class BasicMap extends Component {
           >
           <ZoomableGroup center={[0,20]}>
             <Geographies geography={ "../../static/world.json" }>
-              {(geographies, projection) => geographies.map((geography, i) => (
+              {(geographies, projection) => geographies.map((geography, i) => {
+
+                // if (geography.properties.iso_a2 === 'RUS') {
+                  console.log(`${geography.properties.iso_a2} - ${geography.properties.name}`);
+
+                // }
+                // console.log(geography.properties);
+              return (
                 <Geography
                   key={ i }
                   geography={ geography }
@@ -44,7 +51,7 @@ class BasicMap extends Component {
                   onClick={ this.handleClick }
                   style={{
                     default: {
-                      fill: popScale(geography.properties.pop_est),
+                      fill: '#fff', //popScale(geography.properties.pop_est),
                       stroke: "#607D8B",
                       strokeWidth: 0.75,
                       outline: "none",
@@ -63,7 +70,8 @@ class BasicMap extends Component {
                     }
                   }}
                 />
-              ))}
+                );
+              })}
             </Geographies>
           </ZoomableGroup>
         </ComposableMap>

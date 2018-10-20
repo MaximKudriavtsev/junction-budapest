@@ -12,8 +12,6 @@ export class Line extends PureComponent {
 		super(props);
 
 		this.state = {
-			// startX: props.startX || 0,
-			// startY: props.startY || 0,
 			endX: props.startX || 0,
 			endY: props.startY || 0,
 		};
@@ -26,24 +24,20 @@ export class Line extends PureComponent {
 				endY: this.props.endY,
 			});
 		}, DELAY);
-		setTimeout(() => {
-			const line = ReactDOM.findDOMNode(this);
-			// line.remove();
-		}, ANIMATION_DELAY + DELAY + 300);
+		// setTimeout(() => {
+		// 	const line = ReactDOM.findDOMNode(this);
+		// line.remove();
+		// }, ANIMATION_DELAY + DELAY + 300);
 	}
 
 	static getDerivedStateFromProps(nextProps, prevState) {
     const {
 			startX,
 			startY,
-			// endX,
-			// endY,
     } = nextProps;
 
 		if (prevState.endX === startX) return({});
     return {
-      // startX,
-			// startY,
 			endX: startX,
 			endY: startY,
     };
@@ -60,7 +54,6 @@ export class Line extends PureComponent {
 			endY,
 		} = this.state;
 
-		console.log('123');
 		return (
 			<div
 				className="pulse"

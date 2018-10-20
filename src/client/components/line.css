@@ -1,5 +1,4 @@
 .pulse {
-    /* margin:100px; */
     position: absolute;
     display: block;
     width: 10px;
@@ -10,8 +9,6 @@
     cursor: pointer;
     box-shadow: 0 0 20 rgba(25, 126, 244, 0.55);
     animation: pulse 0.4s infinite;
-    /* border-bottom: 60px solid #fff;
-    transform-origin: center; */
   }
   .pulse:hover {
     animation: none;

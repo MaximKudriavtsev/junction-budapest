@@ -10,13 +10,26 @@
     "server": "nodemon src/server/index.js",
     "dev": "concurrently 'npm run server' 'npm run client'"
   },
-  "author": "Sandeep Raveesh",
+  "contributors": [
+    {
+      "name": "Inessa Gracheva"
+    },
+    {
+      "name": "Oleg Kipchatov",
+      "url": "https://github.com/JarponOK"
+    },
+    {
+      "name": "Maxim Kudryavtsev",
+      "url": "https://github.com/MaximKudriavtsev"
+    }
+  ],
   "license": "ISC",
   "dependencies": {
     "express": "^4.16.3",
     "react": "^16.5.2",
     "react-dom": "^16.5.2",
-    "cote": "0.18.0"
+    "cote": "0.18.0",
+    "react-simple-maps": "0.12.1"
   },
   "devDependencies": {
     "@babel/core": "^7.0.0",
@@ -44,7 +57,6 @@
     "d3": "5.7.0",
     "d3-scale": "2.1.2",
     "d3-geo": "1.11.1",
-    "topojson-client": "3.0.0",
-    "react-simple-maps": "0.12.1"
+    "topojson-client": "3.0.0"
   }
 }

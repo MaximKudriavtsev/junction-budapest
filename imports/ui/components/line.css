@@ -1,0 +1,41 @@
+.pulse {
+    position: absolute;
+    display: block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: rgb(25, 126, 244);
+    /* background: rgb(175, 218, 252); */
+    cursor: pointer;
+    box-shadow: 0 0 20 rgba(25, 126, 244, 0.55);
+    animation: pulse 0.4s infinite;
+  }
+  .pulse:hover {
+    animation: none;
+  }
+  
+  @-webkit-keyframes pulse {
+    0% {
+      -webkit-box-shadow: 0 0 0 0 rgba(25, 126, 244, 0.5);
+    }
+    70% {
+        -webkit-box-shadow: 0 0 0 20px rgba(25, 126, 244, 0);
+    }
+    100% {
+        -webkit-box-shadow: 0 0 0 0 rgba(25, 126, 244, 0.5);
+    }
+  }
+  @keyframes pulse {
+    0% {
+      -moz-box-shadow: 0 0 0 0 rgba(25, 126, 244, 0.5);
+      box-shadow: 0 0 0 0 rgba(25, 126, 244, 0.5);
+    }
+    70% {
+        -moz-box-shadow: 0 0 0 20px rgba(25, 126, 244, 0);
+        box-shadow: 0 0 0 20px rgba(44, 204, 196, 0);
+    }
+    100% {
+        -moz-box-shadow: 0 0 0 0 rgba(25, 126, 244, 0.5);
+        box-shadow: 0 0 0 0 rgba(25, 126, 244, 0.5);
+    }
+  }

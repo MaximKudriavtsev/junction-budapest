@@ -27,11 +27,14 @@ let index = 0;
 export default withTracker(() => {
   Meteor.subscribe('transfers');
 
-  let prevIndex = index;
-  index += Math.floor(5 + Math.random() * (18-5+1));
-  return {
-    transfers: Transfers.find({
-      id: { $lt: index + 1, $gt: prevIndex - 1 }
-    }).fetch(),
-  };
+  // let prevIndex = index;
+  // index += Math.floor(5 + Math.random() * (18-5+1));
+  // return {
+  //   transfers: Transfers.find({
+  //     id: { $lt: index + 1, $gt: prevIndex - 1 }
+  //   }).fetch(),
+  // };
+  return ({
+    transfers: Transfers.find({}).fetch(),
+  });
 })(App);
